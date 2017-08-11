@@ -1,0 +1,11 @@
+POST    /v1/email/send                 controller.StandaloneMailController.sendEmail
+POST    /v1/email/job                  controller.MailJobController.startJob
+DELETE  /v1/email/job/:id              controller.MailJobController.finishJob(id: Int)
+POST    /v1/email/send-attachment      controller.StandaloneMailController.sendEmailWithAttachements
+
+POST    /v2/email/job                  controller.MailActorController.startJob
+DELETE  /v2/email/job/:id              controller.MailActorController.stopJob(id: Int)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /                           controllers.Assets.at(path="/public", file="index.html")
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
